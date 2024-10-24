@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- Navigation Section -->
-    <header>
+    <header class="header">
       <nav>
         <div class="hamburger">
           <span></span>
@@ -17,6 +17,7 @@
           <span></span>
         </div>
         <ul class="nav-links">
+          <li><a href="#top">Kestrel</a></li>
           <li><a href="#about">About Me</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#photography">Photography</a></li>
@@ -27,8 +28,21 @@
 
     <!-- Main Section -->
     <main>
+      <!-- Top Section -->
+      <section id="top">
+        <div class="page-top">
+          <div
+            class="page-image"
+            style="background-image: url('img/cover.jpg')"
+            jsname="index-image-top"></div>
+          <div role="button" class="scroll-down" onclick="scrollToContent()">
+            Down
+          </div>
+        </div>
+      </section>
+
       <!-- Introduction Section -->
-      <section id="about">
+      <section id="about" class="animate-on-scroll">
         <h1>Heya, my name is Kestrel</h1>
         <p>
           I'm a soon-to-be college student, who enjoys programming and
@@ -39,7 +53,7 @@
       </section>
 
       <!-- Projects Section -->
-      <section id="projects">
+      <section id="projects" class="animate-on-scroll">
         <h2>Projects</h2>
         <div class="project-list">
           <!-- Project items will go here -->
@@ -53,7 +67,7 @@
         </div>
       </section>
 
-      <section id="photography">
+      <section id="photography" class="animate-on-scroll">
         <h2>Photography</h2>
         <p>
           Nothing to see here either :c (feel free to reach out and ask for some
@@ -62,7 +76,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact">
+      <section id="contact" class="animate-on-scroll">
         <h2>Contact Me</h2>
         <p>
           If you want to reach out, feel free to email me at

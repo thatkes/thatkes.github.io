@@ -8,11 +8,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('header nav ul');
 const navItems = document.querySelectorAll('header nav ul li');
-
 
 function updateNavDisplay() {
     if (window.innerWidth > 768) {
@@ -26,10 +24,6 @@ function updateNavDisplay() {
         hamburger.style.display = 'block';
     }
 }
-
-updateNavDisplay();
-
-window.addEventListener('resize', updateNavDisplay);
 
 hamburger.addEventListener('click', () => {
     const isActive = navLinks.classList.toggle('nav-active');
@@ -73,3 +67,45 @@ navLinks.addEventListener('transitionend', () => {
         navLinks.style.height = '';
     }
 });
+
+function scrollToContent() {
+    document.querySelector('#about').scrollIntoView({ behavior: "smooth" });
+}
+
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+
+    const options = {
+        root: null,
+        theshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+function scrollHeader() {
+    const header = document.querySelector('.header');
+    
+    if (window.scrollY > 0) {
+        header.classList.add('visible');
+    } else {
+        header.classList.remove('visible');
+    }
+}
+
+
+updateNavDisplay();
+window.addEventListener('resize', updateNavDisplay);
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+window.addEventListener('scroll', scrollHeader);
